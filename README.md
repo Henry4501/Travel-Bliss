@@ -65,6 +65,7 @@ node server.js
 You will see the booking data entered from the website.  
 
 ## Project Structure
+<pre>
 project-folder/
 │
 ├── frontend/
@@ -75,4 +76,4 @@ project-folder/
 └── backend/
     ├── server.js
     └── package.json
-
+</pre>
