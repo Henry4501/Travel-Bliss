@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   async function loadBookings() {
     cardsContainer.innerHTML = "";
     try {
-      const response = await fetch(`http://localhost:3000/my-bookings/${currentUser.email}`);
+      const response = await fetch(`https://travel-bliss-hpg8.onrender.com/my-bookings/${currentUser.email}`);
       const bookings = await response.json();
 
       if (bookings.length === 0) {
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   window.deleteBooking = async (id) => {
     if (!confirm("Are you sure you want to completely cancel this luxury trip? This cannot be undone!")) return;
     try {
-      await fetch(`http://localhost:3000/bookings/${id}`, { method: "DELETE" });
+      await fetch(`https://travel-bliss-hpg8.onrender.com/bookings/${id}`, { method: "DELETE" });
       loadBookings();
     } catch (e) {
       alert("Failed to delete booking.");
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const notes = document.getElementById("edit-notes").value;
 
     try {
-      await fetch(`http://localhost:3000/bookings/${id}`, {
+      await fetch(`https://travel-bliss-hpg8.onrender.com/bookings/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ destination: dest, travel_date: date, add_notes: notes })

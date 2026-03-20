@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   try {
-    const response = await fetch("http://localhost:3000/bookings");
+    const response = await fetch("https://travel-bliss-hpg8.onrender.com/bookings");
     const bookings = await response.json();
 
     if (bookings.length === 0) {

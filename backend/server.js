@@ -8,11 +8,8 @@ app.use(cors());
 app.use(express.json());
 
 const pool = new Pool({
-  host: "localhost",
-  user: "postgres",       
-  password: "postgres",
-  database: "travelbliss", 
-  port: 5432,             
+  connectionString: process.env.DATABASE_URL || "postgres://postgres:postgres@localhost:5432/travelbliss",
+  ssl: process.env.DATABASE_URL ? { rejectUnauthorized: false } : false
 });
 
 
@@ -134,7 +131,7 @@ app.put("/bookings/:id", (req, res) => {
   );
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

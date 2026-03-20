@@ -72,7 +72,7 @@ if (signupForm) {
     const password = document.getElementById("signup-password").value;
 
     try {
-      const response = await fetch("http://localhost:3000/signup", {
+      const response = await fetch("https://travel-bliss-hpg8.onrender.com/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password }),
@@ -96,11 +96,11 @@ if (loginForm) {
     const password = document.getElementById("login-password").value;
 
     try {
-      let endpoint = "http://localhost:3000/login";
+      let endpoint = "https://travel-bliss-hpg8.onrender.com/login";
       let bodyData = { email: emailOrUsername, password };
 
       if (currentRole === "admin") {
-        endpoint = "http://localhost:3000/admin-login";
+        endpoint = "https://travel-bliss-hpg8.onrender.com/admin-login";
         bodyData = { username: emailOrUsername, password };
       }
 
