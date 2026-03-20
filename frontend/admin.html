@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard | Travel Bliss</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="glass">
+    <a href="index.html" class="logo">TRAVEL BLISS</a>
+    <div class="nav-links">
+      <a href="index.html">Back to Site</a>
+      <a href="#" id="switch-role-btn" style="color: #ff9800; border-bottom: 2px solid transparent;">Switch to User</a>
+      <a href="login.html" class="btn-login" id="nav-auth-btn">Log In</a>
+    </div>
+  </nav>
+
+  <div class="admin-dashboard">
+    <h2 style="text-align: left; margin-bottom: 20px;">Admin Dashboard</h2>
+    <p>Manage all luxury travel bookings securely below.</p>
+
+    <div class="table-container glass-dark" style="margin-top: 40px;">
+      <table>
+        <thead>
+          <tr>
+            <th>Booking ID</th>
+            <th>Traveler Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Destination</th>
+            <th>Travel Date</th>
+            <th>Notes & Remarks</th>
+          </tr>
+        </thead>
+        <tbody id="bookings-tbody">
+          <!-- Dynamically injected via admin.js -->
+        </tbody>
+      </table>
+    </div>
+    <div id="no-data" style="text-align: center; padding: 40px; display: none;">
+      <p style="color: #aaa;">No bookings have been made yet in the database.</p>
+    </div>
+  </div>
+
+  <script src="auth.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

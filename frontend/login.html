@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Travel Bliss</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .role-toggle {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .role-btn {
+      padding: 10px 20px;
+      border: 1px solid rgba(255,255,255,0.3);
+      background: transparent;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      flex: 1;
+      transition: all 0.3s ease;
+    }
+    .role-btn.active {
+      background: rgba(255, 152, 0, 0.8);
+      border-color: #ff9800;
+    }
+  </style>
+</head>
+<body>
+  <nav class="glass">
+    <a href="index.html" class="logo">TRAVEL BLISS</a>
+  </nav>
+  <div class="auth-page">
+    <div class="glass-dark auth-form" style="padding: 40px; border-radius: 16px; width: 400px; box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
+      <h2 id="login-title">User Login</h2>
+      <p id="login-desc">Log in to manage your luxury travels.</p>
+      
+      <div class="role-toggle">
+        <button id="btn-user-role" class="role-btn active">User</button>
+        <button id="btn-admin-role" class="role-btn">Admin</button>
+      </div>
+
+      <form id="login-form" style="padding: 0; max-width: 100%;">
+        <input type="email" id="login-email" placeholder="Email Address" required />
+        <input type="password" id="login-password" placeholder="Password" required />
+        <button type="submit" class="btn" style="width: 100%;">Log In</button>
+      </form>
+      <p id="signup-link-container" style="margin-top: 20px;">Don't have an account? <a href="signup.html">Sign up</a></p>
+    </div>
+  </div>
+  <script src="auth.js"></script>
+</body>
+</html>

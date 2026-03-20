@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Dashboard | Travel Bliss</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .booking-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .booking-card {
+      padding: 20px;
+    }
+    .booking-card h3 { margin-bottom: 10px; }
+    .booking-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    .booking-actions button {
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      border-radius: 6px;
+      cursor: pointer;
+      border: none;
+      font-weight: 600;
+    }
+    .btn-edit { background: #00c6ff; color: white; }
+    .btn-delete { background: #ff5252; color: white; }
+    
+    /* Modal for Edit */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .modal-content {
+      background: #222;
+      padding: 30px;
+      border-radius: 12px;
+      width: 400px;
+      max-width: 90%;
+    }
+    .modal-content form { padding: 0; }
+  </style>
+</head>
+<body>
+  <nav class="glass">
+    <a href="index.html" class="logo">TRAVEL BLISS</a>
+    <div class="nav-links">
+      <a href="index.html">Back to Site</a>
+      <a href="#" class="btn-login" id="nav-auth-btn">Log Out</a>
+    </div>
+  </nav>
+
+  <div class="admin-dashboard">
+    <h2 id="welcome-msg" style="text-align: left; margin-bottom: 20px;">My Dashboard</h2>
+    <p>View and manage all your upcoming luxury travels here.</p>
+    <a href="index.html#booking" class="btn" style="display: inline-block; margin-top: 20px;">Add New Booking</a>
+
+    <div id="booking-cards" class="booking-cards">
+      <!-- Injected via JS -->
+    </div>
+    <div id="no-data" style="text-align: center; padding: 40px; display: none;">
+      <p style="color: #aaa;">You have no past or upcoming bookings.</p>
+    </div>
+  </div>
+
+  <!-- Edit Modal -->
+  <div id="edit-modal" class="modal">
+    <div class="modal-content glass-dark">
+      <h3>Edit Booking</h3>
+      <form id="edit-form" style="margin-top: 20px; max-width: 100%;">
+        <input type="hidden" id="edit-id" />
+        
+        <label>Destination</label>
+        <select id="edit-destination" required>
+          <option>Paris</option><option>New York</option><option>Tokyo</option><option>Rome</option><option>Sydney</option><option>London</option><option>Bali</option>
+        </select>
+        
+        <label>Travel Date</label>
+        <input type="date" id="edit-date" required />
+        
+        <label>Notes</label>
+        <textarea id="edit-notes" rows="3"></textarea>
+        
+        <div style="display: flex; gap: 10px; margin-top: 10px;">
+          <button type="submit" class="btn" style="flex: 1;">Save Changes</button>
+          <button type="button" class="btn" style="background: transparent; border: 1px solid #fff; flex: 1; box-shadow: none;" onclick="document.getElementById('edit-modal').style.display='none'">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="auth.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>
